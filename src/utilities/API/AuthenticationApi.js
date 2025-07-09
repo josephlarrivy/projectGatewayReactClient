@@ -29,10 +29,11 @@ class AuthenticationApi {
     }
   }
 
-  async checkLoginCode(code) {
+  async checkLoginCode(email, code) {
+
     const method = "GET";
     const route = "/auth/users/checkLoginCode";
-    const params = new URLSearchParams({ code });
+    const params = new URLSearchParams({ email, code });
 
     const response = await this.api.makeRequest(method, `${route}?${params.toString()}`, null, null);
 
