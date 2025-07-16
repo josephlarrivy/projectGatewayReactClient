@@ -14,6 +14,9 @@ const EnterLoginCode = () => {
     if (code) {
       setLoginCode(code); // Set the code from the URL if it exists
     }
+    if (emailAddress) {
+      setEmail(emailAddress); // Set email from the URL if it exists
+    }
   }, [code]);
 
   const handleEmailChange = (e) => {
@@ -38,7 +41,7 @@ const EnterLoginCode = () => {
     } else {
       console.warn(response);
     }
-    
+
   };
 
   return (
@@ -58,7 +61,7 @@ const EnterLoginCode = () => {
         <input
           id="loginCode"
           type="text"
-          value={loginCode} // Use the loginCode state
+          value={loginCode}
           onChange={(e) => handleCodeChange(e)}
         />
       </label>
