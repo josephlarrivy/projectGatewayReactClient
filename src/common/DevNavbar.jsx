@@ -10,7 +10,7 @@ const DevNavbar = () => {
     <div>
       <button onClick={() => navigateTo('/')}>home</button>
       <button onClick={() => navigateTo('/register')}>register</button>
-      <button onClick={() => navigateTo('/enterLoginCode')}>enter login code</button>
+      <button onClick={() => navigateTo('/enterEmailVerificationCode')}>enter email verification code</button>
       <button onClick={() => navigateTo('/login')}>log in</button>
       <hr/>
     </div>

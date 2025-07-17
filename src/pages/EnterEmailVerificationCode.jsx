@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import AuthenticationApi from "../utilities/API/AuthenticationApi";
 
-const EnterLoginCode = () => {
+const EnterEmailVerificationCode = () => {
 
   const { emailAddress, code } = useParams(); // Retrieve the optional code parameter
   const [email, setEmail] = useState(emailAddress || "")
-  const [loginCode, setLoginCode] = useState(code || ""); // Initialize with the code if present
+  const [verificationCode, setVerificationCode] = useState(code || ""); // Initialize with the code if present
 
   const AuthenticationApiRequest = new AuthenticationApi();
 
   useEffect(() => {
     if (code) {
-      setLoginCode(code); // Set the code from the URL if it exists
+      setVerificationCode(code); // Set the code from the URL if it exists
     }
     if (emailAddress) {
       setEmail(emailAddress); // Set email from the URL if it exists
@@ -24,12 +24,12 @@ const EnterLoginCode = () => {
   };
 
   const handleCodeChange = (e) => {
-    setLoginCode(e.target.value);
+    setVerificationCode(e.target.value);
   };
 
   const handleCodeSubmit = async () => {
 
-    const response = await AuthenticationApiRequest.checkLoginCode(email, loginCode);
+    const response = await AuthenticationApiRequest.checkVerificationCode(email, verificationCode);
 
     console.log(response.status);
 
@@ -46,7 +46,7 @@ const EnterLoginCode = () => {
 
   return (
     <div>
-      <h1>enter login code</h1>
+      <h1>enter email verification code</h1>
       <label htmlFor='email'>
         Email:
         <input
@@ -57,11 +57,11 @@ const EnterLoginCode = () => {
         </input>
       </label>
       <br />
-      <label htmlFor="loginCode">Code:
+      <label htmlFor="verificationCode">Code:
         <input
-          id="loginCode"
+          id="verificationCode"
           type="text"
-          value={loginCode}
+          value={verificationCode}
           onChange={(e) => handleCodeChange(e)}
         />
       </label>
@@ -72,4 +72,4 @@ const EnterLoginCode = () => {
   );
 };
 
-export default EnterLoginCode;
+export default EnterEmailVerificationCode;
