@@ -24,7 +24,7 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Log In</h1>
+      <h1>log in</h1>
       <label htmlFor='email'>
         Email:
         <input

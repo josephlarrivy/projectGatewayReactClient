@@ -24,7 +24,7 @@ const Register = () => {
       console.log('user already registered')
     } else if (response.status == 200) {
       console.log('new user registered')
-      navigateTo('/enterVerificationCode')
+      navigateTo('/enterEmailVerificationCode')
     } else {
       console.error(response)
     }
